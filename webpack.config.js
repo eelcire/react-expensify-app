@@ -21,25 +21,38 @@ module.exports = (env) => {
         exclude: /node_modules/
       },{
         test: /\.s?css$/,
-        use: CSSExtract.extract({
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader
-            },
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true
-              }
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
             }
-          ]
-        })
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+        // use: [
+        //   {
+        //     loader: MiniCssExtractPlugin.loader
+        //   },
+        //   {
+        //     loader: 'css-loader',
+        //     options: {
+        //       sourceMap: true
+        //     }
+        //   },
+        //   {
+        //     loader: 'sass-loader',
+        //     options: {
+        //       sourceMap: true
+        //     }
+        //   }
+        // ]
 			}]
 		},
     plugins: [
