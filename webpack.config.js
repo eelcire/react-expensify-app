@@ -51,7 +51,7 @@ module.exports = (env) => {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
       publicPath: '/dist/'
-  }
+    }
   
   // babel vs webpack is different
   // loader (transforms a file before webpack uses it)
@@ -59,5 +59,5 @@ module.exports = (env) => {
       // "babel-cli": "^6.24.1",
       // "babel-core": "^6.25.0",
   
-}
+  }
 }
