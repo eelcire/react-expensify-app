@@ -2,7 +2,7 @@ import { startAddExpense, addExpense, editExpense, startEditExpense, removeExpen
 import expenses from '../fixtures/expenses'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import database from '../../firebase/firebase'
+import { database } from '../../firebase/firebase'
 
 const uid = 'thisismytestuid'
 const defaultAuthState = { auth: { uid } }
@@ -118,7 +118,7 @@ test('should add expense with defaults to database and store', (done) => {
         ...expenseDefaults
       }
     })
-    return database.ref(`users/${uid}expenses/${actions[0].expense.id}`).once('value')
+    return database.ref(`users/${uid}/expenses/${actions[0].expense.id}`).once('value')
   }).then((snapshot) => {
     expect(snapshot.val()).toEqual(expenseDefaults)
     done()
