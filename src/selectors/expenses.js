@@ -1,4 +1,3 @@
-// jan 1 1970 (unix epoch)
 import moment from 'moment'
 
 export default (expenses, { text, sortBy, startDate, endDate}) => {

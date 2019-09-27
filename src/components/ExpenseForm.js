@@ -47,10 +47,8 @@ export default class ExpenseForm extends React.Component {
     }))
   }
   onSubmit = (e) => {
-    // prevents full page refresh
     e.preventDefault();
     if (!this.state.description || !this.state.amount) {
-      // set error state
       this.setState(() => ({
         error: 'Please include description & amount'
       }))

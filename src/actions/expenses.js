@@ -1,9 +1,4 @@
-import uuid from 'uuid'
 import { database } from '../firebase/firebase'
-
-
-// Actions
-// ADD_EXPENSE
 
 export const addExpense = (expense) => ({
   type: 'ADD_EXPENSE',
@@ -29,7 +24,6 @@ export const startAddExpense = (expenseData = {}) => {
   }
 }
 
-// REMOVE_EXPENSE
 export const removeExpense = ({ id } = {}) => ({
   type: 'REMOVE_EXPENSE',
   id
@@ -69,7 +63,6 @@ export const startSetExpenses = () => {
     const uid = getState().auth.uid
     return database.ref(`users/${uid}/expenses`).once('value').then((snapshot) => {
       const expenses = []
-
       snapshot.forEach((childSnapshot) => {
         expenses.push({
           id: childSnapshot.key,
